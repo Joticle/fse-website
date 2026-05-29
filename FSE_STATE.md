@@ -52,13 +52,13 @@
    Pre-launch site; nobody knows it exists yet. Stack-later item. Before the
    site goes public, rotate the SmarterASP.NET Web Deploy password and move
    it out of `.pubxml.user` into an env var consumed by `dotnet publish`.
-2. **DB password committed in `appsettings.json` (plaintext) — RESOLVED 2026-05-28 (forward), HISTORY OUTSTANDING.**
+2. **DB password committed in `appsettings.json` (plaintext) — FULLY RESOLVED 2026-05-28.**
    The key originally named `FState-SQLConn` carried the real SmarterASP.NET
    SQL password in the working tree and was committed in initial commit
    `8a46d0b` (2026-04-29) to the public GitHub repo `Joticle/fse-website`.
    The earlier note that "the repo is not yet a git repository" was incorrect
    — the repo had already been pushed publicly when that note was written.
-   **Remediation (2026-05-28):** password rotated externally on the
+   **Forward remediation (2026-05-28):** password rotated externally on the
    SmarterASP DB; `appsettings.json` removed from version control
    (`git rm --cached` + added to `.gitignore`); config key renamed from
    `FState-SQLConn` to `ConnectionStrings:FState` so the rotated password is
@@ -66,10 +66,19 @@
    (set in the SmarterASP control panel, NOT in `web.config`); local
    working-tree `appsettings.json` scrubbed — the key remains with an empty
    string value as a structure placeholder.
-   **Outstanding:** the old (rotated-out) password is still present in the
-   git history at commit `8a46d0b` on the public GitHub remote. Removing it
-   requires rewriting history (`git filter-repo` or BFG) and force-pushing
-   `main`. Tracked as a separate follow-up — "part 2".
+   **History purge (2026-05-28):** the public GitHub repo
+   `Joticle/fse-website` was deleted and recreated empty. The local `.git`
+   directory was wiped, the repo reinitialized fresh, and a single new
+   initial commit `a6ef3ad` was pushed as the sole commit on `origin/main`.
+   Verified post-push: `git ls-remote origin` reports only `HEAD` and
+   `refs/heads/main` pointing to `a6ef3ad`, and
+   `git log --all -p -S 'Emma2026@'` returns empty across all refs. The
+   leaked password is gone from version control entirely.
+   **Residual exposure (outside our control, not blocking close):** any
+   third-party clones/forks made before repo deletion, GitHub
+   secret-scanning indexes from before deletion, and external caches may
+   still hold the old value. The rotated-out password is treated as
+   permanently compromised and must never be reused anywhere.
 3. **Key Vault wiring removed entirely.**
    Azure.Identity and Azure.Extensions.AspNetCore.Configuration.Secrets are
    gone from the csproj. `Program.cs` no longer calls `AddAzureKeyVault`.
