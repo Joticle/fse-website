@@ -1,0 +1,133 @@
+/* ============================================================
+   FSE Design Tokens
+   All custom properties use the --fse-* prefix.
+   No other CSS file in this solution defines colors, spacing,
+   radii, shadows, or timings outside of these tokens.
+   ============================================================ */
+
+:root {
+    /* ---------- Palette: deep navy/slate base ---------- */
+    --fse-color-ink-0: #f5f7fb;   /* near-white surface */
+    --fse-color-ink-1: #e6ebf3;   /* soft surface */
+    --fse-color-ink-2: #c7d1e0;   /* muted border */
+    --fse-color-ink-3: #8a97ac;   /* secondary text */
+    --fse-color-ink-4: #4c5a72;   /* body text on light */
+    --fse-color-ink-5: #2a3446;   /* heading text on light */
+    --fse-color-ink-6: #111a2b;   /* navy near-black */
+
+    --fse-color-navy-900: #05091a;
+    --fse-color-navy-800: #0a1026;
+    --fse-color-navy-700: #0f1836;
+    --fse-color-navy-600: #162248;
+    --fse-color-navy-500: #1e2e5c;
+
+    /* ---------- Accent: electric teal-cyan ---------- */
+    --fse-color-accent-100: #dff9ff;
+    --fse-color-accent-300: #7fe3f3;
+    --fse-color-accent-500: #1fc7e0;
+    --fse-color-accent-600: #0ba8c0;
+    --fse-color-accent-700: #087f93;
+
+    /* ---------- Accent secondary: electric blue ---------- */
+    --fse-color-blue-500: #4c7fff;
+    --fse-color-blue-600: #2f5fe6;
+
+    /* ---------- Semantic surfaces ---------- */
+    --fse-surface-page: var(--fse-color-ink-0);
+    --fse-surface-card: #ffffff;
+    --fse-surface-elevated: #ffffff;
+    --fse-surface-inverse: var(--fse-color-navy-800);
+    --fse-surface-muted: var(--fse-color-ink-1);
+
+    /* ---------- Semantic text ---------- */
+    --fse-text-primary: var(--fse-color-ink-5);
+    --fse-text-body: var(--fse-color-ink-4);
+    --fse-text-muted: var(--fse-color-ink-3);
+    --fse-text-inverse: var(--fse-color-ink-0);
+    --fse-text-accent: var(--fse-color-accent-600);
+
+    /* ---------- Semantic borders ---------- */
+    --fse-border-subtle: var(--fse-color-ink-1);
+    --fse-border-default: var(--fse-color-ink-2);
+    --fse-border-strong: var(--fse-color-ink-3);
+
+    /* ---------- Focus + selection ---------- */
+    --fse-focus-ring: 0 0 0 3px rgba(31, 199, 224, 0.35);
+    --fse-selection-bg: var(--fse-color-accent-300);
+    --fse-selection-fg: var(--fse-color-navy-800);
+
+    /* ---------- Gradient ---------- */
+    --fse-gradient-hero: linear-gradient(135deg, var(--fse-color-navy-800) 0%, var(--fse-color-navy-600) 60%, var(--fse-color-accent-700) 100%);
+    --fse-gradient-accent: linear-gradient(90deg, var(--fse-color-accent-500), var(--fse-color-blue-500));
+
+    /* ---------- Typography ---------- */
+    --fse-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --fse-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --fse-font-size-xs: 0.75rem;
+    --fse-font-size-sm: 0.875rem;
+    --fse-font-size-md: 1rem;
+    --fse-font-size-lg: 1.125rem;
+    --fse-font-size-xl: 1.25rem;
+    --fse-font-size-2xl: 1.5rem;
+    --fse-font-size-3xl: 2rem;
+    --fse-font-size-4xl: 2.5rem;
+    --fse-font-size-5xl: 3.25rem;
+    --fse-font-size-6xl: 4rem;
+
+    --fse-font-weight-regular: 400;
+    --fse-font-weight-medium: 500;
+    --fse-font-weight-semibold: 600;
+    --fse-font-weight-bold: 700;
+
+    --fse-line-height-tight: 1.15;
+    --fse-line-height-snug: 1.35;
+    --fse-line-height-normal: 1.55;
+    --fse-line-height-loose: 1.75;
+
+    --fse-letter-spacing-tight: -0.02em;
+    --fse-letter-spacing-wide: 0.08em;
+
+    /* ---------- Spacing scale ---------- */
+    --fse-space-1: 0.25rem;
+    --fse-space-2: 0.5rem;
+    --fse-space-3: 0.75rem;
+    --fse-space-4: 1rem;
+    --fse-space-5: 1.5rem;
+    --fse-space-6: 2rem;
+    --fse-space-7: 2.5rem;
+    --fse-space-8: 3rem;
+    --fse-space-9: 4rem;
+    --fse-space-10: 5rem;
+    --fse-space-11: 6rem;
+    --fse-space-12: 8rem;
+
+    /* ---------- Radius scale ---------- */
+    --fse-radius-sm: 4px;
+    --fse-radius-md: 8px;
+    --fse-radius-lg: 12px;
+    --fse-radius-xl: 18px;
+    --fse-radius-2xl: 24px;
+    --fse-radius-pill: 999px;
+
+    /* ---------- Shadow scale ---------- */
+    --fse-shadow-xs: 0 1px 2px rgba(17, 26, 43, 0.06);
+    --fse-shadow-sm: 0 2px 6px rgba(17, 26, 43, 0.08);
+    --fse-shadow-md: 0 8px 20px rgba(17, 26, 43, 0.10);
+    --fse-shadow-lg: 0 16px 40px rgba(17, 26, 43, 0.14);
+    --fse-shadow-xl: 0 28px 60px rgba(17, 26, 43, 0.18);
+    --fse-shadow-accent: 0 10px 30px rgba(11, 168, 192, 0.25);
+
+    /* ---------- Transitions ---------- */
+    --fse-transition-fast: 120ms ease-out;
+    --fse-transition-base: 200ms ease-out;
+    --fse-transition-slow: 360ms cubic-bezier(0.2, 0.7, 0.2, 1);
+
+    /* ---------- Layout ---------- */
+    --fse-container-max: 1200px;
+    --fse-container-narrow: 880px;
+    --fse-nav-height: 68px;
+    --fse-z-nav: 50;
+    --fse-z-overlay: 80;
+    --fse-z-modal: 100;
+}

@@ -1,0 +1,132 @@
+@page
+@model FlowState.Pages.ResultsModel
+@{
+    ViewData["Title"] = "Results";
+}
+
+<section class="fse-page-hero">
+    <div class="fse-container">
+        <span class="fse-badge">Track Record</span>
+        <h1>What FSE Has Built</h1>
+        <p>Methodology is only as real as the systems it ships. No proprietary details &mdash; just the shape of the evidence.</p>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container">
+        <div class="fse-stats">
+            <div class="fse-stat">
+                <span class="fse-stat-value">8</span>
+                <span class="fse-stat-label">Production Solutions</span>
+            </div>
+            <div class="fse-stat">
+                <span class="fse-stat-value">6</span>
+                <span class="fse-stat-label">Industries Covered</span>
+            </div>
+            <div class="fse-stat">
+                <span class="fse-stat-value">12</span>
+                <span class="fse-stat-label">Universal Standing Orders</span>
+            </div>
+            <div class="fse-stat">
+                <span class="fse-stat-value">0/0</span>
+                <span class="fse-stat-label">Errors / Warnings Target</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container">
+        <div class="fse-section-header">
+            <span class="fse-eyebrow">Domains</span>
+            <h2>Where FSE Has Shipped</h2>
+            <p>Six industries, one methodology. The domain changes; the standing orders do not.</p>
+        </div>
+
+        <div class="fse-card-grid">
+            <article class="fse-card">
+                <div class="fse-card-icon">H</div>
+                <h3>Healthcare Compliance</h3>
+                <p>Regulated workflows with hard audit requirements. Living documentation maps cleanly onto compliance evidence &mdash; the state file is the paper trail.</p>
+            </article>
+            <article class="fse-card">
+                <div class="fse-card-icon">L</div>
+                <h3>Legal Practice Management</h3>
+                <p>Matter tracking, document handling, deadline engines. Predictable behavior beats flashy features when a missed date has consequences.</p>
+            </article>
+            <article class="fse-card">
+                <div class="fse-card-icon">F</div>
+                <h3>Financial Trading</h3>
+                <p>Systems where correctness is not a preference. Zero-warning builds and the self-healing loop catch what production cannot afford to catch.</p>
+            </article>
+            <article class="fse-card">
+                <div class="fse-card-icon">E</div>
+                <h3>Elder Care</h3>
+                <p>Operations for caregivers and families. Interfaces that cannot afford to confuse the user &mdash; constraints on the code translate into constraints on the UI.</p>
+            </article>
+            <article class="fse-card">
+                <div class="fse-card-icon">U</div>
+                <h3>Education</h3>
+                <p>Learning platforms and coursework tooling. New instructors, new learners, new edge cases every term &mdash; the state file absorbs the churn.</p>
+            </article>
+            <article class="fse-card">
+                <div class="fse-card-icon">C</div>
+                <h3>Corporate Operations</h3>
+                <p>Internal platforms that replace spreadsheets and email threads. The same FSE template onboards them in one session.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="fse-section fse-section-dark">
+    <div class="fse-container-narrow">
+        <div class="fse-section-header">
+            <span class="fse-eyebrow">Invariants</span>
+            <h2>What Is True Across Every Solution</h2>
+        </div>
+
+        <ol class="fse-timeline">
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">01</span>
+                <h4>Consistent Modular Monolith</h4>
+                <p>Every solution ships with the same architectural shape. When you know one, you know all of them &mdash; context transfer across systems is free.</p>
+            </li>
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">02</span>
+                <h4>0-Error, 0-Warning Builds</h4>
+                <p>Maintained continuously, not patched before a release. Warnings are errors that haven't escalated yet; we don't let them.</p>
+            </li>
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">03</span>
+                <h4>One-Session Onboarding</h4>
+                <p>A new solution is initialized, described, and brought to green-build state within a single CLI session. The template carries the weight.</p>
+            </li>
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">04</span>
+                <h4>12 Universal Standing Orders</h4>
+                <p>Enforced in every repo, in every session, without exception. Complete files only. No stubs. Zero warnings. CSS tokens only. Secrets never commit. The list is short on purpose.</p>
+            </li>
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">05</span>
+                <h4>Self-Healing Build Loop</h4>
+                <p>Errors are caught by the agent, not by the human, and never by production. Three strikes triggers Counter-Point &mdash; the approach changes, the loop does not spin.</p>
+            </li>
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">06</span>
+                <h4>Living Documentation Eliminates Context Loss</h4>
+                <p>A session that ends at midnight and a session that starts next Tuesday read the same <code>FSE_STATE.md</code>. The human does not re-explain the system.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow">
+        <blockquote class="fse-quote">
+            The bar is not "shippable." The bar is "every session ends greener than it started."
+        </blockquote>
+        <p class="fse-cta-center">
+            <a class="fse-btn fse-btn-primary" asp-page="/About">About the Methodology &rarr;</a>
+        </p>
+    </div>
+</section>

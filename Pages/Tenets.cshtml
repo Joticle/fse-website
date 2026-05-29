@@ -1,0 +1,123 @@
+@page
+@model FlowState.Pages.TenetsModel
+@{
+    ViewData["Title"] = "The Ten Tenets";
+}
+
+<section class="fse-page-hero">
+    <div class="fse-container">
+        <span class="fse-badge">Foundation</span>
+        <h1>The Ten Tenets</h1>
+        <p>Ten philosophical statements written in October 2025. Each one became a concrete engineering practice. The header is the original idea. The block underneath is what it actually became.</p>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container">
+        <div class="fse-tenet-grid">
+
+            <article class="fse-tenet">
+                <span class="fse-tenet-num">01</span>
+                <h3>Thought and Action Are Connected</h3>
+                <p>Design, plan, and execution are linked through a continuous protocol, run by separate layers.</p>
+                <span class="fse-tenet-became">
+                    <strong>Became:</strong> the Session Protocol &mdash; Verify, Plan, Execute, Validate run in one unbroken flow. The gap between deciding and doing is where bugs live; the protocol closes it.
+                </span>
+            </article>
+
+            <article class="fse-tenet">
+                <span class="fse-tenet-num">02</span>
+                <h3>Intelligence Is Symbiotic</h3>
+                <p>AI is a working partner. Roles are explicit, not blended.</p>
+                <span class="fse-tenet-became">
+                    <strong>Became:</strong> the two-layer model &mdash; Claude Web plans, Claude Code executes, the human sets constraints. Three roles, one system, no confusion about who decides what.
+                </span>
+            </article>
+
+            <article class="fse-tenet">
+                <span class="fse-tenet-num">03</span>
+                <h3>The Plan Lives</h3>
+                <p>Architecture and intent evolve continuously.</p>
+                <span class="fse-tenet-became">
+                    <strong>Became:</strong> <code>FSE_STATE.md</code> &mdash; carried forward across every session, updated at every exit, read at every entry. The plan has a home and that home is version-controlled.
+                </span>
+            </article>
+
+            <article class="fse-tenet">
+                <span class="fse-tenet-num">04</span>
+                <h3>Evolution Replaces Iteration</h3>
+                <p>Each change refines the system.</p>
+                <span class="fse-tenet-became">
+                    <strong>Became:</strong> no sprints, no backlogs, no tickets in a separate tool. The state file is the backlog. Priorities change where decisions are made, not where they are reported.
+                </span>
+            </article>
+
+            <article class="fse-tenet">
+                <span class="fse-tenet-num">05</span>
+                <h3>Flow Over Friction</h3>
+                <p>Unnecessary friction kills momentum; deliberate friction protects quality.</p>
+                <span class="fse-tenet-became">
+                    <strong>Became:</strong> the CLI auto-reads <code>FSE.md</code>. Infrastructure check runs automatically. The human never re-explains context the system already has. Onboarding a new solution fits in one session. The Counter-Point Protocol preserves intentional friction at exactly the points where the agent might otherwise drift.
+                </span>
+            </article>
+
+            <article class="fse-tenet">
+                <span class="fse-tenet-num">06</span>
+                <h3>Context Is The Code</h3>
+                <p>The why lives beside the what &mdash; context executes logic.</p>
+                <span class="fse-tenet-became">
+                    <strong>Became:</strong> <code>FSE.md</code> is not documentation about the code. It <em>is</em> the operating context. The agent's behavior is a function of what that file says. Change the file, change the behavior.
+                </span>
+            </article>
+
+            <article class="fse-tenet">
+                <span class="fse-tenet-num">07</span>
+                <h3>Adaptation Is The Default</h3>
+                <p>Change is constant; growth is forced by reality, not bloat.</p>
+                <span class="fse-tenet-became">
+                    <strong>Became:</strong> <code>FSE.md</code> splits when it grows past 15 KB. <code>FSE_POLICE.md</code> is born the first time a standing order is violated. The document ecosystem expands only where expansion is forced by reality.
+                </span>
+            </article>
+
+            <article class="fse-tenet">
+                <span class="fse-tenet-num">08</span>
+                <h3>Transparency Is Trust</h3>
+                <p>Every decision is traceable and accountable.</p>
+                <span class="fse-tenet-became">
+                    <strong>Became:</strong> the Self-Healing Build Loop. Every error is visible. Every retry is logged. The Lessons Learned registry is an honest record of what the system got wrong &mdash; nothing is hidden to protect appearances.
+                </span>
+            </article>
+
+            <article class="fse-tenet">
+                <span class="fse-tenet-num">09</span>
+                <h3>Knowledge Is a Living Network</h3>
+                <p>Every interaction strengthens shared intelligence.</p>
+                <span class="fse-tenet-became">
+                    <strong>Became:</strong> a pattern proven in one solution informs the others. Tiered docs capture institutional knowledge in files, not in people. When a pattern graduates, it is promoted into the universal FSE template.
+                </span>
+            </article>
+
+            <article class="fse-tenet">
+                <span class="fse-tenet-num">10</span>
+                <h3>Creation Is Continuous</h3>
+                <p>Systems live, learn, and evolve perpetually.</p>
+                <span class="fse-tenet-became">
+                    <strong>Became:</strong> <code>FSE_STATE.md</code> always ends with Next Session Priorities. There is always a next step. A session never closes with "done" &mdash; it closes with "here is where the next session begins."
+                </span>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow">
+        <blockquote class="fse-quote">
+            The tenets are not rules to follow. They are properties of the system.
+            Build the system and you are following them automatically.
+        </blockquote>
+        <p class="fse-cta-center">
+            <a class="fse-btn fse-btn-primary" asp-page="/Results">See What FSE Has Built &rarr;</a>
+        </p>
+    </div>
+</section>

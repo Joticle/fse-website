@@ -1,0 +1,86 @@
+@page
+@model AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<section class="fse-page-hero">
+    <div class="fse-container-narrow">
+        <span class="fse-badge">About</span>
+        <h1>Who Built FSE and Why</h1>
+        <p>A brief origin story &mdash; one creator, one company, one October.</p>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow fse-prose">
+        <h2>Creator</h2>
+        <p>
+            FlowState Engineering was created by <strong>Scott Michael Wilson</strong> in October 2025.
+            The first manifesto was drafted in a single sitting &mdash; ten tenets, one creed, and a
+            conviction that AI-assisted development had become powerful enough to be dangerous without
+            structure.
+        </p>
+
+        <h2>Origin</h2>
+        <p>
+            FSE is the engineering methodology used across eight production solutions in active development &mdash; across healthcare compliance, legal practice management, financial trading, elder care, education, corporate operations, chiropractic, and geotechnical engineering. The methodology is not a product &mdash; it is the operating system these projects run on. This site exists so the methodology can be read and understood without reverse-engineering it from the codebases that use it.
+        </p>
+
+        <h2>Origin</h2>
+        <p>
+            FSE was born from a specific recognition: AI-assisted development needed <strong>constraints, not
+            freedom</strong>. Given unbounded latitude, the agent drifts, invents architecture mid-task, and
+            ships subtle inconsistencies that compound across a solution. Given a short list of explicit
+            standing orders, a clear session protocol, and a self-healing build loop, the same agent becomes
+            the most consistent engineer on the team.
+        </p>
+
+        <p>
+            The first manifesto captured the vision in October 2025. The words were philosophical because
+            the practice didn't exist yet. Eight production solutions later, every tenet has a concrete
+            engineering practice underneath it &mdash; the vision has become the machinery.
+        </p>
+
+        <div class="fse-callout">
+            <p>
+                <strong>The short version:</strong> FSE is what you get when you stop trying to make the agent
+                more creative and start making the context more precise. The agent was never the bottleneck.
+                The operating context was.
+            </p>
+        </div>
+
+        <h2>Timeline</h2>
+        <ol class="fse-timeline">
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">October 2025</span>
+                <h4>The Manifesto</h4>
+                <p>Ten tenets, one creed. Written in the first hours of realization. Preserved on the <a asp-page="/Legacy">Legacy</a> page.</p>
+            </li>
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">Late 2025</span>
+                <h4>First Solution</h4>
+                <p>The first production system built under the methodology. Lessons from it became the first entries in the shared standing-order registry.</p>
+            </li>
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">2026</span>
+                <h4>Eight Solutions Shipped</h4>
+                <p>Healthcare, legal, financial, elder care, education, corporate operations. Different domains &mdash; same template, same bar, same document ecosystem.</p>
+            </li>
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">Today</span>
+                <h4>FSE Is the Default</h4>
+                <p>Every new solution onboards to the methodology in one CLI session. The template has absorbed the lessons of every prior build.</p>
+            </li>
+        </ol>
+
+        <h2>Contact</h2>
+        <p>
+            This site is a reference, not a lead form. If you're reading this for methodology research, the tenets and the How It Works page contain the whole system &mdash; there is nothing held back behind a wall.
+        </p>
+
+        <p class="fse-cta-center">
+            <a class="fse-btn fse-btn-primary" asp-page="/HowItWorks">Read How FSE Works &rarr;</a>
+        </p>
+    </div>
+</section>

@@ -1,0 +1,90 @@
+@{
+    var currentPage = ViewContext.RouteData.Values["page"]?.ToString() ?? string.Empty;
+    bool IsActive(string path) => string.Equals(currentPage, path, System.StringComparison.OrdinalIgnoreCase);
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] — FlowState Engineering</title>
+    <meta name="description" content="FlowState Engineering — the constraint-based development methodology where human intuition and machine intelligence build production software together." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@@400;500;600;700&family=JetBrains+Mono:wght@@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/fse-variables.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/fse-base.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/fse-layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/fse-components.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+
+    <header>
+        <nav class="fse-nav" id="fseNav">
+            <div class="fse-nav-inner">
+                <a class="fse-brand" asp-page="/Index">
+                    <span class="fse-brand-mark">F</span>
+                    <span>FlowState</span>
+                </a>
+
+                <ul class="fse-nav-links" id="fseNavLinks">
+                    <li><a asp-page="/Index" class="@(IsActive("/Index") ? "is-active" : null)">Home</a></li>
+                    <li><a asp-page="/HowItWorks" class="@(IsActive("/HowItWorks") ? "is-active" : null)">How It Works</a></li>
+                    <li><a asp-page="/Tenets" class="@(IsActive("/Tenets") ? "is-active" : null)">Tenets</a></li>
+                    <li><a asp-page="/Quickstart" class="@(IsActive("/Quickstart") ? "is-active" : null)">Quickstart</a></li>
+                    <li><a asp-page="/Extensions" class="@(IsActive("/Extensions") ? "is-active" : null)">Extensions</a></li>
+                    <li><a asp-page="/Results" class="@(IsActive("/Results") ? "is-active" : null)">Results</a></li>
+                    <li><a asp-page="/Legacy" class="@(IsActive("/Legacy") ? "is-active" : null)">Legacy</a></li>
+                    <li><a asp-page="/About" class="@(IsActive("/About") ? "is-active" : null)">About</a></li>
+                </ul>
+
+                <button class="fse-nav-toggle" id="fseNavToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="fseNavLinks">
+                    <span class="fse-nav-toggle-bars" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="fse-footer">
+        <div class="fse-footer-inner">
+            <div class="fse-footer-brand">FlowState Engineering</div>
+            <div class="fse-footer-meta">
+                <span>&copy; @DateTime.UtcNow.Year Scott Michael Wilson</span>
+                <span> &middot; </span>
+                <a href="https://fstate.dev">fstate.dev</a>
+                <span> &middot; </span>
+                <a asp-page="/Privacy">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var nav = document.getElementById('fseNav');
+            var toggle = document.getElementById('fseNavToggle');
+            if (!nav || !toggle) return;
+            toggle.addEventListener('click', function () {
+                var open = nav.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            document.querySelectorAll('#fseNavLinks a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    nav.classList.remove('is-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

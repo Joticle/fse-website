@@ -1,0 +1,153 @@
+@page
+@model FlowState.Pages.QuickstartModel
+@{
+    ViewData["Title"] = "Quickstart";
+}
+
+<section class="fse-page-hero">
+    <div class="fse-container">
+        <span class="fse-badge">Adoption</span>
+        <h1>Get the Core in an Afternoon</h1>
+        <p>FSE is a methodology, not a framework. There is nothing to install, nothing to configure, no SDK to import. The work of adopting FSE is reading three documents, copying three templates into your project, and changing how you run sessions. Most teams have it in place before the day ends.</p>
+        <p class="fse-cta-center">
+            <a class="fse-btn fse-btn-primary" href="https://github.com/Joticle/fse-core" target="_blank" rel="noopener noreferrer">Get the Core on GitHub &rarr;</a>
+        </p>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow">
+        <h2>The Five-Step Adoption Sequence</h2>
+        <p>This is the order. Skipping steps doesn't accelerate adoption — it produces the appearance of adoption without the underlying discipline.</p>
+
+        <div class="fse-timeline">
+            <article class="fse-timeline-item">
+                <span class="fse-timeline-step">01</span>
+                <h3>Read the methodology</h3>
+                <p>Start with <code class="fse-code">FSE.md</code> in the core repository. It's the single document that defines what FSE is and how a session runs. Read it before you do anything else. If parts feel obvious, that's fine — the value of writing it down is that the obvious things stop getting skipped.</p>
+            </article>
+
+            <article class="fse-timeline-item">
+                <span class="fse-timeline-step">02</span>
+                <h3>Copy the three bedrock templates</h3>
+                <p>Copy <code class="fse-code">FSE.md</code>, <code class="fse-code">FSE_STATE.md</code>, and <code class="fse-code">FSE_DISCOVERY.md</code> from the <code class="fse-code">templates/</code> folder into your project. These are your bedrock files. They live alongside your code and get read at the start of every session.</p>
+            </article>
+
+            <article class="fse-timeline-item">
+                <span class="fse-timeline-step">03</span>
+                <h3>Run the onboarding prompt</h3>
+                <p>If you're using an AI assistant, paste the contents of <code class="fse-code">ONBOARDING_PROMPT.md</code> into your first session. It walks the assistant through auditing your current state and populating the bedrock files from what already exists. If you're working without an assistant, do the audit yourself with the same prompt as a checklist.</p>
+            </article>
+
+            <article class="fse-timeline-item">
+                <span class="fse-timeline-step">04</span>
+                <h3>Establish your baselines</h3>
+                <p>Document your current build state in <code class="fse-code">FSE_STATE.md</code>: error count (should be zero), warning count (this is your baseline), test count, and any known technical debt. From this point forward, every session is measured against these baselines.</p>
+            </article>
+
+            <article class="fse-timeline-item">
+                <span class="fse-timeline-step">05</span>
+                <h3>Run your first FSE session</h3>
+                <p>Pick a small, real piece of work. Run it through the VERIFY → PLAN → EXECUTE → VALIDATE protocol. End with a session-state update and a clean commit. Don't pick something ambitious for the first session — the point is to feel the rhythm, not to ship a feature.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow">
+        <h2>Tips From the Trenches</h2>
+        <p>Things that aren't in the methodology document but that real adoption keeps surfacing.</p>
+
+        <div class="fse-card-grid">
+            <article class="fse-card">
+                <h3>Don't adopt FSE the same week you ship</h3>
+                <p>The first few sessions feel slower because the protocol is unfamiliar. That's normal. Don't combine adoption with a deadline — adopt during a calmer week, then ride the discipline into the deadline.</p>
+            </article>
+
+            <article class="fse-card">
+                <h3>Bedrock files are not documentation</h3>
+                <p>They are operational state. They get updated every session. Treat them like build artifacts that happen to be human-readable, not like a wiki you write once and forget.</p>
+            </article>
+
+            <article class="fse-card">
+                <h3>The lessons learned registry is the highest-value section</h3>
+                <p>Mistakes that get logged stop repeating. Mistakes that don't get logged repeat forever. Be honest about what went wrong and add it the moment you correct it.</p>
+            </article>
+
+            <article class="fse-card">
+                <h3>VERIFY is not optional</h3>
+                <p>Skipping VERIFY because "I know what's there" is the single most common adoption failure. The point of VERIFY is not what you know — it's what's actually on disk right now. Read the files.</p>
+            </article>
+
+            <article class="fse-card">
+                <h3>Three failed self-healing attempts means stop</h3>
+                <p>Not four. Not five. The fourth attempt is the same reasoning that produced the first three failures. Stop, report, switch approaches.</p>
+            </article>
+
+            <article class="fse-card">
+                <h3>Tier 2 files come later, not first</h3>
+                <p>You don't need a separate police file or schema file on day one. Add them when the bedrock methodology document grows past readable size or when a domain accumulates enough rules to warrant its own file.</p>
+            </article>
+
+            <article class="fse-card">
+                <h3>Stack-specific rules belong in extensions</h3>
+                <p>Don't fold .NET-specific or React-specific rules into your bedrock methodology document. Reference the appropriate stack folder in the extensions repository instead. Your bedrock stays portable.</p>
+            </article>
+
+            <article class="fse-card">
+                <h3>Commit at the end of every session</h3>
+                <p>Always. Even if the session was small. The git history becomes a parallel record of how the project actually moved, which is invaluable when you're trying to reconstruct context six months later.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow">
+        <h2>Frequently Asked Questions</h2>
+
+        <article class="fse-prose">
+            <h3>Do I need an AI assistant to use FSE?</h3>
+            <p>No. FSE was developed alongside AI-assisted development and the protocol fits naturally with it, but the methodology is about how sessions are structured and how state is tracked. Both work without an assistant. The discipline is the same either way.</p>
+
+            <h3>Does FSE only work for solo developers?</h3>
+            <p>No. It was created by a solo developer managing eight production solutions, which is why it's heavy on documented state and structured sessions. Teams use it too. The bedrock files become shared context instead of tribal knowledge.</p>
+
+            <h3>What if my project doesn't follow the modular monolith pattern?</h3>
+            <p>The session protocol applies regardless of architecture. The structural conventions in the methodology document are recommendations grounded in real practice — adapt them to your architecture and document the adaptation in your bedrock files. The point is to have an explicit answer, not to follow our specific answer.</p>
+
+            <h3>Why no migrations? That's the .NET way.</h3>
+            <p>That's a stack-specific rule, and it lives in the .NET extension, not the core. The reasoning is documented in the standing orders for that stack. If you're using a different stack, your migrations story can be different — what matters is that the rule is explicit and the failure modes are understood.</p>
+
+            <h3>How long until FSE feels natural?</h3>
+            <p>Three to five sessions for most people. The protocol feels heavy for the first two sessions because every step is conscious. By the fifth session it's faster than working without it because the cost of skipped steps has shown up at least once.</p>
+
+            <h3>Can I customize the templates?</h3>
+            <p>Yes. The templates are starting points. Add fields, rename sections, drop things you don't use. The only hard rule is that the structure of every session is VERIFY → PLAN → EXECUTE → VALIDATE and that bedrock state is maintained between sessions. Everything else is yours.</p>
+
+            <h3>What's the difference between FSE and just having good documentation?</h3>
+            <p>Documentation describes what the project is. FSE describes how the project moves. Bedrock files are operational, not historical. They're read at the start of every session because they reflect current state, not past decisions.</p>
+
+            <h3>Is FSE compatible with Agile, Scrum, or other process methodologies?</h3>
+            <p>Yes. FSE describes how individual sessions of work are structured, which sits below the level Agile and Scrum operate at. They're orthogonal — your team can run sprints and standups while individual development sessions follow FSE.</p>
+
+            <h3>What if I don't like a specific rule?</h3>
+            <p>Read why it exists first. Every rule in the methodology has a failure mode behind it, and the failure modes are documented. If after reading the reasoning you still disagree, document the deviation in your bedrock files with your reasoning. That's better than silently ignoring it.</p>
+
+            <h3>Where do I get help?</h3>
+            <p>The core repository on GitHub has issue templates for bug reports, feature requests, and methodology questions. Open an issue. Real questions from real adopters are how the methodology improves.</p>
+        </article>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow">
+        <blockquote class="fse-quote">
+            FSE isn't a framework you install. It's a way of running sessions that produces software you can trust six months from now.
+        </blockquote>
+        <p class="fse-cta-center">
+            <a class="fse-btn fse-btn-primary" href="https://github.com/Joticle/fse-core" target="_blank" rel="noopener noreferrer">Get the Core on GitHub &rarr;</a>
+        </p>
+    </div>
+</section>

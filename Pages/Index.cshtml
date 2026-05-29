@@ -1,0 +1,134 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="fse-hero">
+    <div class="fse-hero-inner">
+        <span class="fse-hero-badge">
+            <span aria-hidden="true">&#9670;</span>
+            <span>The Constraint-Based Development Methodology</span>
+        </span>
+        <h1 class="fse-hero-title">
+            <span class="fse-gradient-text">FlowState</span> Engineering
+        </h1>
+        <p class="fse-hero-subtitle">
+            A constraint-based methodology that separates planning and execution the way TDD enforces tests and DevOps enforces builds.
+        </p>
+        <div class="fse-hero-actions">
+            <a class="fse-btn fse-btn-primary" asp-page="/HowItWorks">Explore the Methodology &rarr;</a>
+            <a class="fse-btn fse-btn-secondary" asp-page="/Tenets">Read the Tenets</a>
+            <a class="fse-btn fse-btn-secondary" asp-page="/Quickstart">Get the Core</a>
+            <a class="fse-btn fse-btn-secondary" asp-page="/Extensions">Download Extensions</a>
+        </div>
+        <p class="fse-hero-meta">Developed by Scott Michael Wilson</p>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container">
+        <div class="fse-section-header">
+            <span class="fse-eyebrow">What FSE Is</span>
+            <h2>Three Constraints That Define the Methodology</h2>
+            <p>FSE is a set of constraints that keep human judgment and machine execution aligned on real codebases. Each pillar is a specific mechanism, not a slogan.</p>
+        </div>
+
+        <div class="fse-card-grid">
+            <article class="fse-card">
+                <div class="fse-card-icon">C</div>
+                <h3>Constraint-Based</h3>
+                <p>Planner and executor are strictly separated. One component writes the plan &mdash; files to change, conflicts to surface, architectural rationale. The other performs the edits and reports what actually happened. If the executor hits a decision not covered in the plan, it stops and escalates rather than improvising.</p>
+            </article>
+            <article class="fse-card">
+                <div class="fse-card-icon">S</div>
+                <h3>Self-Healing</h3>
+                <p>Every change that can affect compilation triggers a full build. The loop continues only while the build shows zero errors and zero warnings. On the third failure for the same error class, the agent halts, states the conflict, and offers concrete alternatives instead of guessing again.</p>
+            </article>
+            <article class="fse-card">
+                <div class="fse-card-icon">L</div>
+                <h3>Living Documentation</h3>
+                <p><code class="fse-code">FSE.md</code> defines the protocol and standing orders. <code class="fse-code">FSE_STATE.md</code> tracks build status, known debt, and lessons from the last session. <code class="fse-code">FSE_DISCOVERY.md</code> captures architecture and key decisions. Read at session start, updated at session end, kept under 15 KB.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<aside class="fse-anchor-rule">
+    <p>No execution outside a defined plan.</p>
+</aside>
+
+<section class="fse-section">
+    <div class="fse-container-narrow">
+        <span class="fse-eyebrow">What FSE Is Not</span>
+        <p>FSE is not the common pattern of prompting an AI, accepting whatever output runs once, and moving on. Every session starts from verified state on disk, requires an explicit plan before any edits, produces only production-ready files, and ends only when the build is green with zero errors and zero warnings. The result is a codebase left in a known-good state for the next session.</p>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container">
+        <div class="fse-section-header">
+            <span class="fse-eyebrow">What's Actually New</span>
+            <h2>The Specific Novelty</h2>
+            <p>FSE adapts established principles &mdash; TDD's correctness constraints, DevOps's state discipline, separation-of-concerns architecture &mdash; to a problem none of them were built for: keeping AI-assisted development from drifting under real-world pressure. The novelty is the axis, not the parts.</p>
+        </div>
+
+        <div class="fse-card-grid">
+            <article class="fse-card">
+                <div class="fse-card-icon">1</div>
+                <h3>Thinking vs. Doing, Separated</h3>
+                <p>Plans are produced before execution. Execution never happens outside an approved plan. This isn't a workflow preference &mdash; it's an enforced separation that prevents the most common AI failure mode: confidently shipping something that wasn't asked for.</p>
+            </article>
+            <article class="fse-card">
+                <div class="fse-card-icon">2</div>
+                <h3>Documentation as Runtime Context</h3>
+                <p>The bedrock files are not artifacts written for humans to read later. They are operational state read at the start of every session. The codebase remembers its own architecture, decisions, and mistakes &mdash; so the next session starts where the last one ended.</p>
+            </article>
+            <article class="fse-card">
+                <div class="fse-card-icon">3</div>
+                <h3>Enforced Non-Drift</h3>
+                <p>Standing orders are absolute. Every rule has a documented failure mode behind it. When a session ends, the build is green or the session is not finished &mdash; there is no "we'll fix it next time."</p>
+            </article>
+            <article class="fse-card">
+                <div class="fse-card-icon">4</div>
+                <h3>Conflict Escalation Over Guessing</h3>
+                <p>Three failed self-healing attempts on the same error trigger a stop. The agent does not improvise a fourth try. It reports, asks, and waits. The same logic that produced three failures will not produce a fix on the fourth attempt.</p>
+            </article>
+            <article class="fse-card">
+                <div class="fse-card-icon">5</div>
+                <h3>Verified State Over Assumed State</h3>
+                <p>Every session begins by reading what is actually on disk. No assumptions about file contents. No memory of what "should" be there. The methodology trusts measurements, not impressions &mdash; which is why FSE works the same way on session one and session one hundred.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow">
+        <div class="fse-section-header">
+            <span class="fse-eyebrow">Known Trade-offs</span>
+            <h2>What This Costs</h2>
+        </div>
+        <p>The four-phase session protocol and mandatory self-healing build loop add real friction, especially for trivial one-line changes. That cost is consistently outweighed by reduced drift, cleaner builds, and stable cross-session state. FSE was used to take all eight systems from initial generation through production-ready testing in healthcare compliance, legal practice management, financial trading, elder care, education, corporate operations, chiropractic, and geotechnical engineering.</p>
+        <p>Maintaining accurate living state files requires consistent discipline. When followed, every session starts from verifiable reality instead of accumulated assumptions. For one-off scripts or disposable experiments where the full ritual would be disproportionate, a lighter subset of the rules can be applied.</p>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow">
+        <span class="fse-eyebrow">What FSE Is Building</span>
+        <p>The same constraints have been applied to eight systems taken from initial generation through production-ready testing in healthcare compliance, legal practice management, financial trading, elder care, education, corporate operations, chiropractic, and geotechnical engineering. One is now in true beta with real users.</p>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow">
+        <blockquote class="fse-quote">
+            Context is the code.
+            <cite>&mdash; FlowState Engineering, Tenet 6</cite>
+        </blockquote>
+        <p class="fse-cta-center">
+            <a class="fse-btn fse-btn-primary" asp-page="/HowItWorks">Explore the Methodology &rarr;</a>
+        </p>
+    </div>
+</section>

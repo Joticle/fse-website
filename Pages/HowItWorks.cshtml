@@ -1,0 +1,193 @@
+@page
+@model FlowState.Pages.HowItWorksModel
+@{
+    ViewData["Title"] = "How It Works";
+}
+
+<section class="fse-page-hero">
+    <div class="fse-container">
+        <span class="fse-badge">The Methodology</span>
+        <h1>How FlowState Engineering Works</h1>
+        <p>Five load-bearing parts: two layers, one protocol, one ecosystem, and one loop. Remove any of them and the methodology fails.</p>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow fse-prose">
+        <span class="fse-eyebrow">Section 1</span>
+        <h2>The Two Layers</h2>
+        <p>
+            FSE separates thinking from doing. Claude Web is the planning layer &mdash; it weighs approaches,
+            trades off architectures, writes the plan, and pushes back when the ask doesn't fit the system.
+            Claude Code is the execution layer &mdash; it opens files, runs builds, edits source, and reports
+            what actually happened.
+        </p>
+        <p>
+            Each layer has one job. The planner never edits code directly. The executor never invents
+            architecture on its own. This separation is a mechanical safeguard against the primary failure
+            mode in AI-assisted development: the agent that drifts mid-task because it is simultaneously
+            deciding and doing.
+        </p>
+
+        <div class="fse-callout">
+            <p><strong>Rule:</strong> If Claude Code encounters a decision that wasn't in the plan, it stops and escalates &mdash; it does not improvise.</p>
+        </div>
+    </div>
+</section>
+
+<section class="fse-section fse-section-dark">
+    <div class="fse-container-narrow">
+        <span class="fse-eyebrow">Section 2</span>
+        <h2>Session Protocol</h2>
+        <p>Every session follows four phases. No phase is skipped, even for trivial work.</p>
+
+        <ol class="fse-timeline">
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">Phase 1</span>
+                <h4>Verify</h4>
+                <p>Read <code>FSE.md</code>, <code>FSE_STATE.md</code>, and <code>FSE_DISCOVERY.md</code>. Run <code>dotnet build</code>. Report the baseline. You cannot improve a state you haven't measured.</p>
+            </li>
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">Phase 2</span>
+                <h4>Plan</h4>
+                <p>Restate the request in one sentence. List every file that will be created, modified, or deleted. Surface conflicts with standing orders or known debt before a single keystroke of execution.</p>
+            </li>
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">Phase 3</span>
+                <h4>Execute</h4>
+                <p>Write complete files only. No stubs, no placeholders, no TODOs. Each file is production-ready the moment it is written. The Self-Healing Build Loop runs after every meaningful change.</p>
+            </li>
+            <li class="fse-timeline-item">
+                <span class="fse-timeline-step">Phase 4</span>
+                <h4>Validate</h4>
+                <p>Final build is 0 errors, 0 warnings &mdash; that is the only acceptable terminal state. Trace every new route and binding. Update <code>FSE_STATE.md</code> so the next session starts informed.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow fse-prose">
+        <span class="fse-eyebrow">Section 3</span>
+        <h2>Document Ecosystem</h2>
+        <p>
+            FSE treats documentation as the operating context for the agent, not as a deliverable for
+            humans to read later. Three tiers, explicit growth rules, and a mandatory 15 KB size limit.
+        </p>
+
+        <h3>Tier 1 &mdash; Operating Context</h3>
+        <p>
+            <strong><code>FSE.md</code></strong> is the protocol itself &mdash; session phases, standing orders,
+            project identity. <strong><code>FSE_STATE.md</code></strong> is the living state: build status,
+            lessons learned, known technical debt, next priorities. Both files are read at the start of every session.
+        </p>
+
+        <h3>Tier 2 &mdash; Reference</h3>
+        <p>
+            <strong><code>FSE_DISCOVERY.md</code></strong> is the snapshot: solution structure, dependencies,
+            architectural choices. <strong><code>FSE_POLICE.md</code></strong> is born only when a standing order
+            has been violated &mdash; it records the incident and the new guard rule. Reference docs are read on
+            demand, not on every session.
+        </p>
+
+        <h3>Tier 3 &mdash; Historical</h3>
+        <p>
+            Session history and lesson logs that have aged out of Tier 1. Read rarely. They exist so the state file
+            stays lean.
+        </p>
+
+        <div class="fse-callout">
+            <p><strong>Growth rule:</strong> every document starts unified. When it crosses <strong>15 KB</strong>, the oldest or most self-contained section splits into a Tier 3 file and a pointer is left in the origin. The ecosystem starts at three files and grows only when growth is forced.</p>
+        </div>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow fse-prose">
+        <span class="fse-eyebrow">Section 4</span>
+        <h2>Self-Healing Build Loop</h2>
+        <p>
+            Every change that could affect compilation triggers a build. Zero errors and zero warnings is not
+            a release criterion &mdash; it is a continuous state. The moment the build is not green, the agent
+            stops adding code and starts removing error.
+        </p>
+
+        <pre class="fse-code"><span class="fse-code-dim">// Self-Healing Build Loop</span>
+loop:
+  <span class="fse-code-accent">dotnet build</span> FlowState.sln
+  <span class="fse-code-dim">if</span> errors == 0 <span class="fse-code-dim">and</span> warnings == 0:
+      break
+  read first error
+  form hypothesis
+  apply fix
+  <span class="fse-code-dim">if</span> same error class fails 3 times:
+      invoke <span class="fse-code-accent">Counter-Point Protocol</span>
+goto loop</pre>
+
+        <h3>Counter-Point Protocol</h3>
+        <p>
+            On the third failed retry &mdash; or whenever a user instruction conflicts with a standing order &mdash;
+            the agent stops, states the conflict plainly, and offers two or three concrete alternatives.
+            It does not guess. Friction at this moment is a feature: it prevents the agent from drilling deeper
+            into a bad path.
+        </p>
+    </div>
+</section>
+
+<section class="fse-section fse-section-dark">
+    <div class="fse-container-narrow fse-prose">
+        <span class="fse-eyebrow">Section 5</span>
+        <h2>When Not to Use FSE</h2>
+        <p>
+            FSE is not a universal development process. It is designed for AI-assisted production work where context drift,
+            late-stage integration failure, and scope expansion are real risks. If those risks are not present, the protocol
+            may cost more than it protects.
+        </p>
+
+        <h3>Greenfield discovery without a known target</h3>
+        <p>
+            FSE requires a plan before execution. If the goal is exploratory &mdash; finding the schema, finding the
+            requirements, finding what the AI can do &mdash; the methodology has nothing to enforce. Use FSE once
+            the target is known.
+        </p>
+
+        <h3>Trivial scripts and throwaway utilities</h3>
+        <p>
+            Scripts under a few hundred lines, single-file tools, one-off automation. The protocol overhead exceeds
+            the value of the artifact. Maintaining FSE_STATE.md for a build script is bureaucracy without payoff.
+        </p>
+
+        <h3>Manual-dominant development</h3>
+        <p>
+            When you are writing 90% of the code yourself and using AI only for autocomplete or code completion,
+            the state-synchronization protocol is overhead without payoff. FSE addresses AI-assisted execution failure
+            modes &mdash; if AI is not making meaningful execution decisions, those failure modes are not present.
+        </p>
+
+        <h3>Emergency production fixes</h3>
+        <p>
+            When restoring service matters more than preserving methodology, the methodology yields. Patch the
+            production issue, recover the system, then return to the protocol for the post-incident work. FSE is
+            an investment in long-run integrity, not a constraint on emergency triage.
+        </p>
+
+        <h3>Volatile requirements and rapid pivot environments</h3>
+        <p>
+            When product direction changes hourly, the cost of the baseline ratchet and the re-plan loop exceeds the
+            cost of throwing work away. FSE is for building high-integrity infrastructure, not for finding
+            product-market fit through rapid experimentation.
+        </p>
+
+        <div class="fse-callout">
+            <p><strong>Bottom line:</strong> FSE earns its overhead in long-running, AI-assisted, production-bound work. Outside that envelope, it is the wrong tool.</p>
+        </div>
+    </div>
+</section>
+
+<section class="fse-section">
+    <div class="fse-container-narrow fse-prose">
+        <p class="fse-cta-center">
+            <a class="fse-btn fse-btn-primary" asp-page="/Tenets">See the Ten Tenets &rarr;</a>
+        </p>
+    </div>
+</section>
